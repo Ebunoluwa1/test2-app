@@ -60,7 +60,31 @@ const Table = ({
   };
 
   return (
-    <div>Table components</div>
+    <TableWrapper>
+        
+    <MaterialTable 
+          data={data || []}
+          columns={columns || []}
+          icons={tableIcons}                                                                                                 
+        // title={title || ''}
+        //   options={{
+        //     searchFieldStyle: {
+        //         display: 'flex',
+        //         alignItems: 'center',
+        //         background: '#f7f8f9',
+        //         padding: '10px 18px',
+        //       },
+        //       headerStyle: {
+        //         fontFamily: 'DM Sans',
+        //         fontStyle: 'normal',
+        //         fontWeight: '600',
+        //         fontSize: '14px',
+        //         lineHeight: '18px',
+        //         color: '#010F07',
+        //       },
+        //   }}
+        />
+   </TableWrapper> 
   );
 };
 
