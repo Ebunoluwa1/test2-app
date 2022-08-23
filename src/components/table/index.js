@@ -1,90 +1,73 @@
-import React, { forwardRef } from 'react';
-import MaterialTable from 'material-table';
-import AddBox from '@material-ui/icons/AddBox';
-import ArrowDownward from '@material-ui/icons/ArrowDownward';
-import Check from '@material-ui/icons/Check';
-import ChevronLeft from '@material-ui/icons/ChevronLeft';
-import ChevronRight from '@material-ui/icons/ChevronRight';
-import Clear from '@material-ui/icons/Clear';
-import DeleteOutline from '@material-ui/icons/DeleteOutline';
-import Edit from '@material-ui/icons/Edit';
-import FilterList from '@material-ui/icons/FilterList';
-import FirstPage from '@material-ui/icons/FirstPage';
-import LastPage from '@material-ui/icons/LastPage';
-import Remove from '@material-ui/icons/Remove';
-import SaveAlt from '@material-ui/icons/SaveAlt';
-import Search from '@material-ui/icons/Search';
-import ViewColumn from '@material-ui/icons/ViewColumn';
-// import { SearchIcon } from '../../assets/svg';
-import TableWrapper from './style';
+import React from 'react';
+import moment from 'moment'
+import { Sbu, Location,Equipment, equipmentType, systemTypes, Status } from './data'
+import Wrapper from './style';
+import Input from '../input';
+import SearchIcon from '@mui/icons-material/Search';
+import Button from '../button';
 
 const Table = ({
-  buttonTitle,
-  columns,
-  data,
-  buttonAction,
-  swap,
-  title,
-  otherButton,
-  loading,
-  selection,
-  handleSelection,
-  selectionProps,
+  showModal
 }) => {
-  const tableIcons = {
-    Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
-    Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
-    Clear: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
-    Delete: forwardRef((props, ref) => <DeleteOutline {...props} ref={ref} />),
-    DetailPanel: forwardRef((props, ref) => (
-      <ChevronRight {...props} ref={ref} />
-    )),
-    Edit: forwardRef((props, ref) => <Edit {...props} ref={ref} />),
-    Export: forwardRef((props, ref) => <SaveAlt {...props} ref={ref} />),
-    Filter: forwardRef((props, ref) => <FilterList {...props} ref={ref} />),
-    FirstPage: forwardRef((props, ref) => <FirstPage {...props} ref={ref} />),
-    LastPage: forwardRef((props, ref) => <LastPage {...props} ref={ref} />),
-    NextPage: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
-    PreviousPage: forwardRef((props, ref) => (
-      <ChevronLeft {...props} ref={ref} />
-    )),
-    ResetSearch: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
-    Search: forwardRef((props, ref) => <Search {...props} ref={ref} />),
-    SortArrow: forwardRef((props, ref) => (
-      <ArrowDownward {...props} ref={ref} />
-    )),
-    ThirdStateCheck: forwardRef((props, ref) => (
-      <Remove {...props} ref={ref} />
-    )),
-    ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />),
-  };
+ 
 
   return (
-    <TableWrapper>
+    <>
+      <Wrapper>
+      <Input 
+        rightIcon={<SearchIcon />}
+              />
+      <table>
+  
+      <thead>
+        <tr>
+        <th>Date</th>
+        <th>Equipment Id</th>
+        <th>Location</th>
+        <th>SBU</th>
+        <th>Equipment</th>
+        <th>Status</th>
+        </tr>
+        </thead>
+
+      <tbody>
+         <tr>
+           <td>{systemTypes.slice(0,5).map(item => {
+              return (
+                <div>{moment(item?.createdAt).format('MMM Do YY')}</div>
+              )
+           })}</td>  
+           <td>{Equipment.slice(0,5).map(item => {
+              return (
+                <div>{item?.transactionId}</div>
+              )
+           })}</td>  
+             <td>{Location.slice(0,5).map(item => {
+              return (
+                <div>  {item?.name }</div>
+              )
+           })}</td> 
+              <td>{Sbu.slice(0,5).map(item => {
+              return (
+                <div>  {item?.name }</div>
+              )
+           })}</td> 
+            <td>{equipmentType.slice(0,5).map(item => {
+              return (
+                <div>{item?.name}</div>
+              )
+           })}</td>  
+            <td>{Status.slice(0,5).map(item => {
+              return (
+                <div onClick={showModal}><span>{item?.status}</span></div>
+             )
+           })}</td> 
+         </tr>
+      </tbody>
+      </table>
         
-    <MaterialTable 
-          data={data || []}
-          columns={columns || []}
-          icons={tableIcons}                                                                                                 
-        // title={title || ''}
-        //   options={{
-        //     searchFieldStyle: {
-        //         display: 'flex',
-        //         alignItems: 'center',
-        //         background: '#f7f8f9',
-        //         padding: '10px 18px',
-        //       },
-        //       headerStyle: {
-        //         fontFamily: 'DM Sans',
-        //         fontStyle: 'normal',
-        //         fontWeight: '600',
-        //         fontSize: '14px',
-        //         lineHeight: '18px',
-        //         color: '#010F07',
-        //       },
-        //   }}
-        />
-   </TableWrapper> 
+    </Wrapper>
+   </> 
   );
 };
 

@@ -1,3 +1,4 @@
+
 import React from 'react'
 import Wrapper from './style';
 
@@ -29,7 +30,7 @@ const Input = ({
            
            {as || (
           <div className="inputBoxWrap">
-                {leftIcon} <br />
+             {leftIcon}  <br />
                 <input
                 className={inputClassName}
                 type={type}
@@ -38,7 +39,7 @@ const Input = ({
                 disabled={disabled}
                 placeholder={placeholder}
                 />
-                {rightIcon}
+              <span> {rightIcon} </span>
           </div>
         )}
 
@@ -55,6 +56,7 @@ export default Input;
     placeholder,
     leftIcon,
     rightIcon,
+    required,
     label,
     options,
     onChange,
@@ -94,8 +96,9 @@ export default Input;
                       <option
                         key={Math.random()}
                         value={option[optionValue] || option?.id}
+                        required={required}
                       >
-                        {option[labelName] || option.label || option?.name}
+                        {option[labelName] || option.label || option?.name  || option?.transactionId  ||  option?.status}
                       </option>
                     ))
                   : ''}
@@ -130,4 +133,3 @@ export default Input;
     );
   };
 
-  

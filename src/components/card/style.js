@@ -3,10 +3,7 @@ import styled from 'styled-components';
 export const CardScreenContainer = styled.div`
   background-color: #fff;
   width: 100%;
-  /* height: 474px; */
   min-height: 474px;
-  /* max-height: 741px;
-  overflow: auto; */
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 `;
 
@@ -19,12 +16,11 @@ export const CardAddContainer = styled.div`
   background-color: #ebefff;
   border-radius: 10px;
   min-width: 258px;
-  width: 258px;
   cursor: pointer;
 `;
 export const CardAddIconContainer = styled.div`
-  width: 60px;
-  height: 60px;
+  /* width: 60px;
+  height: 60px; */
   min-width: 60px;
   min-height: 60px;
   border-radius: 50%;
@@ -42,7 +38,7 @@ export const CardAddText = styled.div`
 export const CardNumberContainer = styled.div`
   background: #ffffff;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-
+ width: 100%;
   border-radius: 10px;
   padding: 39px 21px;
   min-width: 258px;
@@ -130,13 +126,16 @@ export const Wrapper = styled.div``;
 export const CardContainer = styled.div`
   display: flex;
   column-gap: 10px;
+  gap: 20px;
   justify-content: space-between;
   margin-top: 22px;
   padding: 10px 20px;
   margin-bottom: 46px;
  
   @media (max-width: 872px) {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    gap: 20px;
   }
 `

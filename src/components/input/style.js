@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  /* width: 100%; */
+  width: 100%;
   .check-wrapper {
     display: flex;
     align-items: center;
@@ -18,7 +18,7 @@ const Wrapper = styled.div`
   }
 
   .input-container {
-    width: 60%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     .input-label {
@@ -29,12 +29,15 @@ const Wrapper = styled.div`
       margin-bottom: 8px;
     }
     .inputBoxWrap {
-      width: 40%;
+      width: 100%;
       border: 1px solid #e3e6e8;
       border-radius: 8px;
       display: flex;
       align-items: center;
       padding: 0px 15px;
+       span{
+        color: lightgray;
+       }
       input,
       select {
         background: transparent;
@@ -46,16 +49,21 @@ const Wrapper = styled.div`
         font-size: 14px;
         line-height: 18px;
         letter-spacing: -0.025em;
-        color: #8f99a3;
+        /* color: #8f99a3; */
         outline: 0;
         flex-grow: 1;
         border-radius: 8px;
+        
         option:checked {
           text-transform: capitalize;
         }
       }
+      &:hover{
+    border: 1px solid black;
+}
     }
   }
+
 `;
 
 export default Wrapper;

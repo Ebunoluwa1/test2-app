@@ -1,76 +1,56 @@
-
-
 import styled from 'styled-components';
 
 const TableWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
 
+table{
+    font-family: Arial, Helvetica, sans-serif;
+border-collapse: collapse;
+    width: 100%;
+}
 
-  .table-column{
-    font-style: normal;
-font-weight: normal;
-font-size: 14px;
-line-height: 18px;
-color: #425466;
-padding:15px;
-  }
-  .ant-table-thead > tr > th{
-    font-family: DM Sans;
-  font-style: normal;
-font-weight: 600;
-font-size: 14px;
-line-height: 18px;
-color: #010F07;
-  }
-
-  .top-div {
-    display: flex;
-    justify-content: space-between;
-    align-items:center;
-    margin-bottom:21px;
-    .tableSearch {
-      display: flex;
-      align-items: center;
-      background: #f7f8f9;
-      padding: 10px 18px;
-      input {
-        flex-flow: 1;
-        border: 0;
-        background: transparent;
-        outline: 0;
-      }
-      svg {
-      }
-    }
-    .td-title {
-      font-style: normal;
-      font-weight: 500;
-    font-size: 20px;
-  line-height: 26px;
-color: #000;
-
-    }
-    .td-button {
-        padding: 15px 21px;
-        background: 
-#B12129;
-        border-radius: 8px;
-        font-family: Inter;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 14px;
-        line-height: 18px;
-        text-align: center;
-        color: #ffffff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: 1px solid 
-#B12129;
-      }
-    }
+thead{
+  margin-top: 20px;
+  th{
+    border-bottom:1px #dddddd solid;
+    text-align: left;
+    padding: 8px;
   
+}
+}
+tbody{
+  td{
+    div{
+      border-bottom:1px #dddddd solid;
+    text-align: left;
+    padding: 15px;
+    }
+    span{
+      font-size: 14px;
+     border: 1px solid  #b12129;
+     padding: 8px 12px;
+     border-radius: 16px;
+       color: #b12129;
+       /* #425466; */
+     &:hover{
+      opacity: 0.9;
+      transform: scale(48.9%);
+      background: lightgray;
+     }
+    }
+  }
+}
+
+   
+.striped:nth-child(even){
+    background-color: #dddddd;
+}
+
+
 `;
 
 export default TableWrapper;
+
+export const TableContainer = styled.div`
+padding: 10px 20px;
+
+`;
