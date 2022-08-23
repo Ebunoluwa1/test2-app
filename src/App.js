@@ -1,14 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
 import Button from './components/button/index';
-
+import CustomSelect from './components/multi-select/CustomSelect'
 import { useState } from 'react';
 import Table from './components/table/index'
 import { Card, CardNumber, } from './components/card';
 import { CardContainer } from './components/card/style';
 import { TableContainer } from './components/table/style';
 import ModalForm from './components/modal';
-import { ChevronRight } from '@material-ui/icons';
 
 function App() {
   const [selectedOption, setSelectedOption] = useState('search')
@@ -55,15 +54,6 @@ function App() {
                        />
                       )}
 
-<Button 
-       extraIcon ={<ChevronRight />}
-           content="Button"
-              background="white"
-              onClick={() => setSelectedOption(search)}
-              color
-              borderWidth= '2'
-              a href='<CustomSelect />'
-                  />
 
       {selectedOption ==='search' ? <CustomSelect
        selectedOption={selectedOption}
